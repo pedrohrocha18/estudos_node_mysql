@@ -1,0 +1,45 @@
+<div class="div_form">
+  <h2>Editar</h2>
+  <form action="" method="post">
+    <div>
+      <label for="musicband">Música:
+        <input
+          type="text"
+          name="musicband"
+          placeholder="Música"
+          value="{{banda.musicband}}"
+        />
+      </label>
+    </div>
+    <div>
+      <label for="nameband">Banda:
+        <input
+          type="text"
+          name="nameband"
+          placeholder="Nome"
+          value="{{banda.nameband}}"
+        />
+      </label>
+    </div>
+    <div>
+      <label for="styleband">Estilo:
+        <select name="styleband" required>
+          <option selected disabled>{{banda.styleband}}</option>
+          <option value="Blues">Blues</option>
+          <option value="Funk">Funk</option>
+          <option value="MPB">MPB</option>
+          <option value="Pagode/Samba">Pagode/Samba</option>
+          <option value="Rock">Rock</option>
+          <option value="Sertanejo">Sertanejo</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </label>
+    </div>
+    <div class="div_submit">
+      <input type="submit" value="Salvar Alterações" class="input_submit" />
+      <a href="/bandas">
+        <input class="input_submit" type="button" value="Voltar" />
+      </a>
+    </div>
+  </form>
+</div>

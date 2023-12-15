@@ -29,11 +29,61 @@ app.post("/insertbanda", (req, res) => {
   const query = `INSERT INTO bandas (nameband, musicband, styleband) VALUES ('${nameband}','${musicband}','${styleband}') `;
 
   conexao.query(query, (err) => {
-    if(err) {
-      console.log(err)
+    if (err) {
+      console.log(err);
     }
-    res.redirect("/")
-  })
+    res.redirect("/");
+  });
+});
+
+//get
+app.get("/bandas", (req, res) => {
+  const query = `SELECT * FROM bandas`;
+
+  conexao.query(query, (err, data) => {
+    if (err) {
+      console.log(err);
+    }
+    const check = data.length == 0;
+    const banda = data;
+
+    res.render("bandas", { check, banda });
+  });
+});
+
+//resgate por id
+app.get("/bandas/:id", (req, res) => {
+  const id = req.params.id;
+
+  const query = `SELECT * FROM bandas WHERE id = ${id}`;
+
+  conexao.query(query, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const banda = data[0];
+    res.render("banda", { banda });
+  });
+});
+
+//edit
+app.get("/bandas/edit/:id", (req, res) => {
+  const id = req.params.id;
+
+  const query = `SELECT * FROM bandas WHERE id = ${id}`;
+
+  conexao.query(query, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const banda = data[0];
+
+    res.render("editfavorite", { banda });
+  });
 });
 
 //conexão

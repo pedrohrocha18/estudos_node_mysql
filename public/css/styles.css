@@ -25,6 +25,7 @@ body {
 .navbar a {
   color: white;
   font-size: 14px;
+  font-weight: bold;
   text-decoration: none;
 }
 .navbar a:hover {
@@ -32,7 +33,7 @@ body {
   transition: 0.6s;
 }
 div {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
 }
 .div_form {
   align-items: center;
@@ -53,10 +54,58 @@ select {
 }
 
 .div_submit {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
+
 .input_submit {
   width: 150px;
+}
+
+.favorite {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.music_band {
+  align-items: center;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  font-size: 15px;
+  font-weight: bold;
+  height: 30px;
+  justify-content: center;
+  min-width: 260px;
+}
+
+.band_style {
+  align-items: center;
+  background-color: green;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  font-size: 13px;
+  font-weight: bold;
+  height: 30px;
+  justify-content: center;
+  width: 110px;
+}
+.band_edit {
+  align-items: center;
+  background-color: rgb(0, 110, 184);
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  font-size: 13px;
+  font-weight: bold;
+  height: 30px;
+  justify-content: center;
+  text-decoration: none;
+  width: 50px;
 }

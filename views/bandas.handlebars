@@ -1,0 +1,16 @@
+<div>
+  <h1>Favoritos</h1>
+  {{#if check}}
+    <p>Você ainda não adicionou dados.</p>
+  {{else}}
+    {{#each banda}}
+      <div class="favorite">
+        <a href="/bandas/{{this.id}}" class="music_band">{{this.musicband}}
+          -
+          {{this.nameband}}</a>
+        <p class="band_style">{{this.styleband}}</p>
+        <a class="band_edit" href="/bandas/edit/{{this.id}}">Editar</a>
+      </div>
+    {{/each}}
+  {{/if}}
+</div>
