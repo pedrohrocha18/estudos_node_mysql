@@ -1,0 +1,62 @@
+html,
+body {
+  background-color: aliceblue;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+.navbar_header {
+  background-color: black;
+  user-select: none;
+  width: 100%;
+}
+.navbar {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  text-align: center;
+}
+.navbar a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+}
+.navbar a:hover {
+  color: gold;
+  transition: 0.6s;
+}
+div {
+  margin-bottom: 0.7rem;
+}
+.div_form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 2rem;
+}
+input,
+select {
+  border: 1px solid gray;
+  border-radius: 4px;
+  width: 250px;
+}
+
+.div_submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input_submit {
+  width: 150px;
+}
