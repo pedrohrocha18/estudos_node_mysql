@@ -10,6 +10,9 @@
           {{this.nameband}}</a>
         <p class="band_style">{{this.styleband}}</p>
         <a class="band_edit" href="/bandas/edit/{{this.id}}">Editar</a>
+        <form class="form" action="/bandas/remove/{{this.id}}" method="post">
+          <input class="input_remove" type="submit" value="X" />
+        </form>
       </div>
     {{/each}}
   {{/if}}

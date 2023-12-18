@@ -86,6 +86,37 @@ app.get("/bandas/edit/:id", (req, res) => {
   });
 });
 
+app.post("/bandas/update", (req, res) => {
+  const id = req.body.id;
+  const music = req.body.musicband;
+  const title = req.body.nameband;
+  const style = req.body.styleband;
+
+  const query = `UPDATE bandas SET musicband = '${music}', nameband = '${title}', styleband = '${style}' WHERE id = ${id} `;
+
+  conexao.query(query, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.redirect("/bandas");
+  });
+});
+
+//remove
+app.post("/bandas/remove/:id", (req, res) => {
+  const id = req.params.id;
+
+  const query = `DELETE FROM bandas WHERE id = ${id}`;
+
+  conexao.query(query, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.redirect("/bandas");
+  });
+});
 //conexão
 const conexao = mysql.createConnection({
   host: "localhost",

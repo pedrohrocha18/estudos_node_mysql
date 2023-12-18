@@ -69,6 +69,7 @@ select {
   display: flex;
   justify-content: center;
   gap: 8px;
+  max-width: 1000px;
 }
 
 .music_band {
@@ -81,6 +82,7 @@ select {
   font-weight: bold;
   height: 30px;
   justify-content: center;
+  padding: 5px;
   min-width: 260px;
 }
 
@@ -94,6 +96,7 @@ select {
   font-weight: bold;
   height: 30px;
   justify-content: center;
+  padding: 5px;
   width: 110px;
 }
 .band_edit {
@@ -106,6 +109,22 @@ select {
   font-weight: bold;
   height: 30px;
   justify-content: center;
+  padding: 5px;
   text-decoration: none;
   width: 50px;
+}
+.form {
+  margin: 0;
+  padding: 0;
+}
+.input_remove {
+  align-items: center;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  height: 30px;
+  text-align: center;
+  width: 30px;
 }
