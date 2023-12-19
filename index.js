@@ -1,6 +1,6 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
-const mysql = require("mysql");
+const pool = require("./db/connection")
 
 const app = express();
 
@@ -15,6 +15,7 @@ app.use(
 );
 
 app.use(express.json());
+app.listen(3000);
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -28,7 +29,7 @@ app.post("/insertbanda", (req, res) => {
 
   const query = `INSERT INTO bandas (nameband, musicband, styleband) VALUES ('${nameband}','${musicband}','${styleband}') `;
 
-  conexao.query(query, (err) => {
+  pool.query(query, (err) => {
     if (err) {
       console.log(err);
     }
@@ -40,7 +41,7 @@ app.post("/insertbanda", (req, res) => {
 app.get("/bandas", (req, res) => {
   const query = `SELECT * FROM bandas`;
 
-  conexao.query(query, (err, data) => {
+  pool.query(query, (err, data) => {
     if (err) {
       console.log(err);
     }
@@ -57,7 +58,7 @@ app.get("/bandas/:id", (req, res) => {
 
   const query = `SELECT * FROM bandas WHERE id = ${id}`;
 
-  conexao.query(query, (err, data) => {
+  pool.query(query, (err, data) => {
     if (err) {
       console.log(err);
       return;
@@ -74,7 +75,7 @@ app.get("/bandas/edit/:id", (req, res) => {
 
   const query = `SELECT * FROM bandas WHERE id = ${id}`;
 
-  conexao.query(query, (err, data) => {
+  pool.query(query, (err, data) => {
     if (err) {
       console.log(err);
       return;
@@ -94,7 +95,7 @@ app.post("/bandas/update", (req, res) => {
 
   const query = `UPDATE bandas SET musicband = '${music}', nameband = '${title}', styleband = '${style}' WHERE id = ${id} `;
 
-  conexao.query(query, (err) => {
+  pool.query(query, (err) => {
     if (err) {
       console.log(err);
       return;
@@ -109,31 +110,11 @@ app.post("/bandas/remove/:id", (req, res) => {
 
   const query = `DELETE FROM bandas WHERE id = ${id}`;
 
-  conexao.query(query, (err) => {
+  pool.query(query, (err) => {
     if (err) {
       console.log(err);
       return;
     }
     res.redirect("/bandas");
   });
-});
-//conexão
-const conexao = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "1807.Drika",
-  database: "db_fixando",
-});
-
-conexao.connect((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Você está conectado ao Banco de Dados =)");
-  }
-});
-
-app.listen(3000, () => {
-  console.log("O servidor está conectado.");
 });
